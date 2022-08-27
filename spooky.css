@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+    margin: 0;
+}
+
+div{
+    filter:blur(70px);
+    color:lightcyan;
+    text-align:center;
+    font-family: comic sans ms;
+    font-size: 8em;
+    text-shadow: 0px 0px 15px cyan;
+    margin: 2em auto;
+}
+
+div:hover {
+    filter:blur(0px);
+    filter:brightness(1.1);
+}
