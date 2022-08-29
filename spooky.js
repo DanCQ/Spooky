@@ -1,11 +1,12 @@
 function touchOn() {
-    document.getElementById("boo").className = "hover";
+    document.getElementById("boo").className = "blur:hover";
 }
 
 function touchOff() {
-    document.getElementById("boo").className = "";
+    document.getElementById("boo").className = "blur";
 }
 
+/*
 function start() {
     document.getElementById("boo").addEventListener("touchstart", touchOn());
 }
@@ -21,3 +22,4 @@ window.onload = function() {
     setInterval(function(){ end() }, 1000); //dynamic page - runs every 1 second
 
 }
+*/
