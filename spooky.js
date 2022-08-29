@@ -3,5 +3,5 @@ function touchOn() {
 }
 
 function touchOff() {
-    document.getElementById("boo").className = "blur";
+    document.getElementById("off").className = "blur";
 }
