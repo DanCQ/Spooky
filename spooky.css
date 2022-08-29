@@ -20,3 +20,9 @@ body {
     filter:blur(0px);
     filter:brightness(1.1);
 }
+
+
+.blur:focus {
+    filter:blur(0px);
+    filter:brightness(1.1);
+}
