@@ -2,7 +2,6 @@ function touchOn() {
     document.getElementById("boo").className = "blur:hover";
 }
 
-/*
 function touchOff() {
     document.getElementById("boo").className = "blur";
 }
@@ -18,8 +17,7 @@ function end() {
 
 window.onload = function() {
 
-    setInterval(function(){ start() }, 1000); //dynamic page - runs every 1 second
-    setInterval(function(){ end() }, 1000); //dynamic page - runs every 1 second
-
+    start();
+    end();
+   
 }
-*/
