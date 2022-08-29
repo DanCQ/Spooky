@@ -18,7 +18,7 @@ div{
 
 div:hover {
     filter:blur(0px);
-    filter:brightness(1.1);    
+    filter:brightness(1.1);
 }
 
 .hover {
