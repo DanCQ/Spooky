@@ -6,12 +6,18 @@ function touchOff() {
     document.getElementById("boo").className = "";
 }
 
+function start() {
+    document.getElementById("boo").addEventListener("touchstart", touchOn());
+}
+
+function end() {
+    document.getElementById("boo").addEventListener("touchend", touchOff());
+}
+
+
 window.onload = function() {
 
-    document.getElementById("boo").addEventListener("touchstart", touchOn());
+    setInterval(function(){ start() }, 1000); //dynamic page - runs every 1 second
+    setInterval(function(){ end() }, 1000); //dynamic page - runs every 1 second
 
-    document.getElementById("boo").addEventListener("touchend", touchOff());
-   
-    //setInterval(function(){ timeStamp() }, 1000); //dynamic page - runs every 1 second
-    
 }
