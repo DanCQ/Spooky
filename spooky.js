@@ -3,5 +3,15 @@ function touchOn() {
 }
 
 function touchOff() {
-    document.getElementById("off").className = "blur";
+    document.getElementById("boo").className = "blur";
+}
+
+window.onload = function() {
+
+    document.getElementById("boo").addEventListener("touchstart", touchOn());
+
+    document.getElementById("boo").addEventListener("touchend", touchOff());
+   
+    //setInterval(function(){ timeStamp() }, 1000); //dynamic page - runs every 1 second
+    
 }
