@@ -3,7 +3,7 @@ body {
     margin: 0;
 }
 
-div{
+.blur {
     filter:blur(70px);
     color:lightcyan;
     text-align:center;
@@ -16,12 +16,8 @@ div{
     transform:rotate(-10deg);
 }
 
-div:hover {
+.blur:hover {
     filter:blur(0px);
     filter:brightness(1.1);
 }
 
-.hover {
-    filter:blur(0px);
-    filter:brightness(1.1);
-}
