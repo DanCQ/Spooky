@@ -14,7 +14,7 @@ function touchOff() {
 function end() {
     document.getElementById("boo").addEventListener("touchend", touchOff());
 }
-*/
+
 
 window.onload = function() {
 
@@ -23,3 +23,5 @@ window.onload = function() {
     //end();
    
 }
+
+*/
