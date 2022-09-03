@@ -1,22 +1,20 @@
 body {
     background-color: black;
-    margin: 0;
 }
 
 .blur {
-    filter:blur(70px);
+    filter:blur(80px);
     color:lightcyan;
     text-align:center;
     font-family: comic sans ms;
-    font-size: 8em;
-    text-shadow: 0px 0px 15px cyan;
-    margin: 2em auto;
-    max-height: 180px;
-    max-width: 325px;
-    transform:rotate(-10deg);
+    font-size: 12em;
+    text-shadow: 0 0 20px cyan;
+    margin: 0.8em auto;
+    transform:rotate(340deg);
 }
 
 .blur:hover {
     filter:blur(0px);
-    filter:brightness(1.1);
+    filter:brightness(1.2);
+    
 }
