@@ -10,7 +10,7 @@ body {
     font-size: 12em;
     text-shadow: 0 0 20px cyan;
     margin: 0.8em auto;
-    transform:rotate(340deg);
+    transform:rotate(350deg);
 }
 
 .blur:hover {
