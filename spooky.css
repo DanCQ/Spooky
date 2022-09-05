@@ -2,6 +2,7 @@ html, body {
     background-color: black;
     margin:0;
     height:100%;
+    overflow:hidden;
     width:100%;
 }
 
@@ -15,7 +16,7 @@ html, body {
     margin: 0.8em auto;
     position:absolute;
     top:25%;
-    left:35%;
+    right:38%;
     transform:rotate(350deg);
     z-index:50;
 }
