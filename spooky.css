@@ -14,9 +14,6 @@ html, body {
     font-size: 12em;
     text-shadow: 0 0 20px cyan;
     margin: 0.8em auto;
-    position:absolute;
-    top:25%;
-    right:38%;
     transform:rotate(350deg);
     z-index:50;
 }
@@ -25,11 +22,6 @@ html, body {
     filter:blur(0px);
     filter:brightness(1.2);
     
-}
-
-#boo {
-    padding:0;
-    margin:0;
 }
 
 figure, .blur {
