@@ -17,7 +17,7 @@ html, body {
     top:25%;
     left:35%;
     transform:rotate(350deg);
-    z-index:1;
+    z-index:50;
 }
 
 .blur:hover {
@@ -32,7 +32,7 @@ html, body {
 }
 
 figure, .blur {
-    border-radius:35%;
+    border-radius:50%;
     width:fit-content;
 }
 
@@ -42,30 +42,22 @@ figure, .blur {
 
 img {
     border-radius:50%;
-    opacity:0.75;
-    z-index:0;
-}
-
-#pinky {
-    position:absolute;
-    top:10%;
-    left:10%;
+    opacity:0.85;
+    padding:0;
+    margin:0;
 }
 
 #inky {
     position:absolute;
     top:10%;
-    right:10%;
+    left:10%;
+    z-index:1;
 }
+
 
 #blinky {
     position:absolute;
     bottom:10%;
-    left:10%;
-}
-
-#clyde {
-    position:absolute;
-    bottom:10%;
     right:10%;
+    z-index:2;
 }
