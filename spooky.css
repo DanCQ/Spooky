@@ -1,5 +1,8 @@
-body {
+html, body {
     background-color: black;
+    margin:0;
+    height:100%;
+    width:100%;
 }
 
 .blur {
@@ -10,11 +13,59 @@ body {
     font-size: 12em;
     text-shadow: 0 0 20px cyan;
     margin: 0.8em auto;
+    position:absolute;
+    top:25%;
+    left:35%;
     transform:rotate(350deg);
+    z-index:1;
 }
 
 .blur:hover {
     filter:blur(0px);
     filter:brightness(1.2);
     
+}
+
+#boo {
+    padding:0;
+    margin:0;
+}
+
+figure, .blur {
+    border-radius:35%;
+    width:fit-content;
+}
+
+.hide {
+    visibility:hidden;
+}
+
+img {
+    border-radius:50%;
+    opacity:0.75;
+    z-index:0;
+}
+
+#pinky {
+    position:absolute;
+    top:10%;
+    left:10%;
+}
+
+#inky {
+    position:absolute;
+    top:10%;
+    right:10%;
+}
+
+#blinky {
+    position:absolute;
+    bottom:10%;
+    left:10%;
+}
+
+#clyde {
+    position:absolute;
+    bottom:10%;
+    right:10%;
 }
