@@ -9,7 +9,7 @@ html, body {
 .blur {
     color:lightcyan;
     filter:blur(80px);
-    font-family: comic sans ms;
+    font-family: party let, brush script mt, snell roundhand, luminari;
     font-size: 12em;
     margin: 1em auto;
     text-align:center;
@@ -49,4 +49,17 @@ img {
     bottom:5%;
     right:5%;
     z-index:2;
+}
+
+@media (max-width: 300px) {
+
+    .blur {
+        font-size:6em;
+    }
+
+
+    img {
+        width:100px;
+    }
+    
 }
