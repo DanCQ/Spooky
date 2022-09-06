@@ -10,7 +10,7 @@ html, body {
     color:lightcyan;
     filter:blur(80px);
     font-family: party let, brush script mt, snell roundhand, luminari;
-    font-size: 12em;
+    font-size: 11em;
     margin: 1em auto;
     text-align:center;
     text-shadow: 0 0 20px cyan;
@@ -35,6 +35,7 @@ figure, .blur {
 img {
     border-radius:50%;
     opacity:0.6;
+    width:140px;
 }
 
 #inky {
@@ -51,7 +52,8 @@ img {
     z-index:2;
 }
 
-@media (max-width: 400px) {
+/* Acts on screens smaller than 500px wide */
+@media (max-width: 500px) {
 
     .blur {
         font-size:9em;
@@ -62,4 +64,18 @@ img {
         width:120px;
     }
     
+}
+
+/* Acts on screens smaller than 1000px wide */
+@media (min-width:1000px) {
+
+    .blur {
+        font-size:16em;
+        margin: 1em auto;
+    }
+
+    img {
+        width:180px;
+    }
+
 }
