@@ -51,12 +51,12 @@ img {
     z-index:2;
 }
 
-@media (max-width: 300px) {
+@media (max-width: 425px) {
 
     .blur {
-        font-size:6em;
+        font-size:7em;
+        margin: 1.6em auto;
     }
-
 
     img {
         width:100px;
