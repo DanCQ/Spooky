@@ -51,15 +51,15 @@ img {
     z-index:2;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 400px) {
 
     .blur {
-        font-size:7em;
-        margin: 1.6em auto;
+        font-size:9em;
+        margin: 1.2em auto;
     }
 
     img {
-        width:100px;
+        width:120px;
     }
     
 }
