@@ -2,13 +2,17 @@
 function spooky (){
     var boo = document.getElementById("boo");
     
-    boo.ontouchstart = function () {
-        boo.className = "blur:hover";
+    boo.ontouch = function () {
+        if (boo.className != "blur:hover") {
+            boo.className = "blur:hover";
+            return boo;
+        } else {
+            //boo.className = "";
+            boo.className = "blur";
+            return boo;
+        }
     };
 
-    boo.ontouchend = function () {
-        boo.className = "blur";
-    };
 }
 
 //Disappears the ghost
@@ -47,3 +51,4 @@ window.onload = function() {
     setInterval(function(){ vanishBlinky() }, 8500); //runs every 8.5 seconds
 
 };
+
