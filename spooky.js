@@ -1,3 +1,5 @@
+/* //Don't know why this function is not working, trying to figure it out..
+
 //Adds touchscreen support to Boo!
 function spooky (){
     var boo = document.getElementById("boo");
@@ -12,8 +14,8 @@ function spooky (){
             return boo;
         }
     };
-
 }
+*/
 
 //Disappears the ghost
 function vanishInky (){
@@ -46,7 +48,7 @@ function vanishBlinky (){
 //runs function after html document loads
 window.onload = function() {
     
-    spooky();
+    //spooky(); //on standy  
     setInterval(function(){ vanishInky() }, 5500); //runs every 5.5 seconds
     setInterval(function(){ vanishBlinky() }, 8500); //runs every 8.5 seconds
 
