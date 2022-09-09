@@ -7,7 +7,7 @@ function spooky (){
             boo.className = "blur:hover";
             return boo;
         } else {
-            //boo.className = "";
+            boo.className = "";
             boo.className = "blur";
             return boo;
         }
