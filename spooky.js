@@ -1,13 +1,12 @@
-
-//Adds touchscreen response to Boo!
+//Adds touchscreen support to Boo!
 function spooky (){
+    var boo = document.getElementById("boo");
+    
     boo.ontouchstart = function () {
-        var boo = document.getElementById("boo");
         boo.className = "blur:hover";
     };
 
     boo.ontouchend = function () {
-        var boo = document.getElementById("boo");
         boo.className = "blur";
     };
 }
@@ -42,13 +41,9 @@ function vanishBlinky (){
 
 //runs function after html document loads
 window.onload = function() {
-
+    
     spooky();
     setInterval(function(){ vanishInky() }, 5500); //runs every 5.5 seconds
     setInterval(function(){ vanishBlinky() }, 8500); //runs every 8.5 seconds
 
 };
-
-
-
-
