@@ -1,22 +1,3 @@
-/* //Don't know why this function is not working, trying to figure it out..
-
-//Adds touchscreen support to Boo!
-function spooky (){
-    var boo = document.getElementById("boo");
-    
-    boo.ontouch = function () {
-        if (boo.className != "blur:hover") {
-            boo.className = "blur:hover";
-            return boo;
-        } else {
-            boo.className = "";
-            boo.className = "blur";
-            return boo;
-        }
-    };
-}
-*/
-
 //Disappears the ghost
 function vanishInky (){
     var ghost = document.getElementById("inky");
@@ -31,6 +12,7 @@ function vanishInky (){
 
 }
 
+//Disappears the ghost
 function vanishBlinky (){
     var ghost = document.getElementById("blinky");
 
@@ -44,11 +26,95 @@ function vanishBlinky (){
 
 }
 
+//Ghost animation
+function inkyAnimate() {
+    var advance;
+    var asset = document.getElementById("inky");
+    var position = 0;
+    var retreat;
+    var snap;
+
+    function snapBack() {
+        position += 2;
+        asset.style.left = position + "%";
+
+        if (position >= 0) {
+            clearInterval(snap);
+            asset.style.position = "";
+            asset.style.left = "";
+            setTimeout(function() { inkyAnimate() }, 25000);
+        }    
+    }
+    function animateBackward() {
+        position -= 1;
+        asset.style.left = position + "%";
+
+        if (position < -45) {
+            clearInterval(retreat);
+            snap = setInterval(snapBack, 1);
+        }
+    }
+    function animateForward() {
+        position += 1;
+        asset.style.left = position + "%";
+
+        if (position > 155) {
+            clearInterval(advance);
+            retreat = setInterval(animateBackward, 15);
+        }
+    }
+    asset.style.position = "absolute";
+    advance = setInterval(animateForward, 20); //begin animation
+}
+
+//Ghost animation
+function blinkyAnimate() {
+    var advance;
+    var asset = document.getElementById("blinky");
+    var position = 0;
+    var retreat;
+    var snap;
+
+    function snapBack() {
+        position += 2;
+        asset.style.right = position + "%";
+
+        if (position >= 0) {
+            clearInterval(snap);
+            asset.style.position = "";
+            asset.style.right = "";
+            setTimeout(function() { blinkyAnimate() }, 22000);
+        }    
+    }
+    function animateBackward() {
+        position -= 1;
+        asset.style.right = position + "%";
+
+        if (position < -45) {
+            clearInterval(retreat);
+            snap = setInterval(snapBack, 1);
+        }
+    }
+    function animateForward() {
+        position += 1;
+        asset.style.right = position + "%";
+
+        if (position > 155) {
+            clearInterval(advance);
+            retreat = setInterval(animateBackward, 15);
+        }
+    }
+    asset.style.position = "absolute";
+    advance = setInterval(animateForward, 20); //begin animation
+}
+
 
 //runs function after html document loads
 window.onload = function() {
     
-    //spooky(); //on standy  
+    inkyAnimate();
+    blinkyAnimate();
+    
     setInterval(function(){ vanishInky() }, 5500); //runs every 5.5 seconds
     setInterval(function(){ vanishBlinky() }, 8500); //runs every 8.5 seconds
 
