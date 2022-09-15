@@ -119,4 +119,19 @@ window.onload = function() {
     setInterval(function(){ vanishBlinky() }, 8500); //runs every 8.5 seconds
 
 };
+// jumpscare when user clicks on boo word
+const boo = document.getElementById("boo");
+const jumpscare1 = document.querySelector(".jumpscare1");
 
+boo.addEventListener("click", function () {
+    
+    jumpscare1.classList.add("jumpscare-active-class");
+    
+    
+    setTimeout(function () {
+        jumpscare1.classList.remove("jumpscare-active-class");
+    }, 2000);
+    
+    let mySound = new Audio('assets/jumpscareaudio.mp3')
+    mySound.play()
+});
