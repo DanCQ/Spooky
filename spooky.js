@@ -1,53 +1,55 @@
-//Disappears the ghost
-function vanishInky (){
-    var ghost = document.getElementById("inky");
+const blinky = document.getElementById("blinky");
+const boo = document.getElementById("boo");
+const inky = document.getElementById("inky");
+const jumpscare = document.querySelector(".jumpscare");
 
-    if (ghost.className != "hide") {
-        ghost.className = "hide";
-        return ghost;
+// jumpscare when user clicks on boo word
+boo.addEventListener("click", function () {
+
+    jumpscare.classList.add("jumpscare-active-class");
+    
+    setTimeout(function () {
+        jumpscare.classList.remove("jumpscare-active-class");
+    }, 2000);
+    
+    let mySound = new Audio('assets/jumpscareaudio.mp3');
+    mySound.play();
+});
+
+
+//Disappears selected variable
+function vanish(vanish) {
+
+    if (vanish.className != "hide") {
+        vanish.className = "hide";
+        return vanish;
     } else {
-        ghost.className = "";
-        return ghost;
+        vanish.className = "";
+        return vanish;
     }
-
 }
 
-//Disappears the ghost
-function vanishBlinky (){
-    var ghost = document.getElementById("blinky");
-
-    if (ghost.className != "hide") {
-        ghost.className = "hide";
-        return ghost;
-    } else {
-        ghost.className = "";
-        return ghost;
-    }
-
-}
-
-//Ghost animation
-function inkyAnimate() {
+//Animate item left
+function leftAnimate(item) {
     var advance;
-    var asset = document.getElementById("inky");
     var position = 0;
     var retreat;
     var snap;
 
     function snapBack() {
         position += 2;
-        asset.style.left = position + "%";
+        item.style.left = position + "%";
 
         if (position >= 0) {
             clearInterval(snap);
-            asset.style.position = "";
-            asset.style.left = "";
-            setTimeout(function() { inkyAnimate() }, 25000);
+            item.style.position = "";
+            item.style.left = "";
+            setTimeout(function() { leftAnimate(item) }, 25000);
         }    
     }
     function animateBackward() {
         position -= 1;
-        asset.style.left = position + "%";
+        item.style.left = position + "%";
 
         if (position < -45) {
             clearInterval(retreat);
@@ -56,39 +58,38 @@ function inkyAnimate() {
     }
     function animateForward() {
         position += 1;
-        asset.style.left = position + "%";
+        item.style.left = position + "%";
 
         if (position > 155) {
             clearInterval(advance);
             retreat = setInterval(animateBackward, 15);
         }
     }
-    asset.style.position = "absolute";
+    item.style.position = "absolute";
     advance = setInterval(animateForward, 20); //begin animation
 }
 
-//Ghost animation
-function blinkyAnimate() {
+//Animate item right
+function rightAnimate(item) {
     var advance;
-    var asset = document.getElementById("blinky");
     var position = 0;
     var retreat;
     var snap;
 
     function snapBack() {
         position += 2;
-        asset.style.right = position + "%";
+        item.style.right = position + "%";
 
         if (position >= 0) {
             clearInterval(snap);
-            asset.style.position = "";
-            asset.style.right = "";
-            setTimeout(function() { blinkyAnimate() }, 22000);
+            item.style.position = "";
+            item.style.right = "";
+            setTimeout(function() { rightAnimate(item) }, 22000);
         }    
     }
     function animateBackward() {
         position -= 1;
-        asset.style.right = position + "%";
+        item.style.right = position + "%";
 
         if (position < -45) {
             clearInterval(retreat);
@@ -97,41 +98,25 @@ function blinkyAnimate() {
     }
     function animateForward() {
         position += 1;
-        asset.style.right = position + "%";
+        item.style.right = position + "%";
 
         if (position > 155) {
             clearInterval(advance);
             retreat = setInterval(animateBackward, 15);
         }
     }
-    asset.style.position = "absolute";
+    item.style.position = "absolute";
     advance = setInterval(animateForward, 20); //begin animation
 }
 
 
 //runs function after html document loads
 window.onload = function() {
-    
-    inkyAnimate();
-    blinkyAnimate();
-    
-    setInterval(function(){ vanishInky() }, 5500); //runs every 5.5 seconds
-    setInterval(function(){ vanishBlinky() }, 8500); //runs every 8.5 seconds
 
+    leftAnimate(inky);
+    rightAnimate(blinky);
+    
+    setInterval(function(){ vanish(inky) }, 5500); //runs every 5.5 seconds
+    setInterval(function(){ vanish(blinky) }, 8500); //runs every 8.5 seconds
 };
-// jumpscare when user clicks on boo word
-const boo = document.getElementById("boo");
-const jumpscare1 = document.querySelector(".jumpscare1");
 
-boo.addEventListener("click", function () {
-    
-    jumpscare1.classList.add("jumpscare-active-class");
-    
-    
-    setTimeout(function () {
-        jumpscare1.classList.remove("jumpscare-active-class");
-    }, 2000);
-    
-    let mySound = new Audio('assets/jumpscareaudio.mp3')
-    mySound.play()
-});
