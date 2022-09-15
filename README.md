@@ -6,4 +6,4 @@ Feel free to make suggestions, or improve the site.
 
 I'll try to make this a better scare.
 
---Made jumpy by contributor <a href="https://github.com/dhruvdabhi101">Dhruv</a>
+--Made jumpier by contributor <a href="https://github.com/dhruvdabhi101">Dhruv</a>
