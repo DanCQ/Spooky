@@ -16,7 +16,7 @@ html, body {
 .blur {
     color:lightcyan;
     filter:blur(80px);
-    font-family: party let, brush script mt, snell roundhand, luminari;
+    font-family: "party let", "brush script mt", "snell roundhand", "luminari";
     font-size: 11em;
     margin: 1em auto;
     text-align:center;
@@ -30,7 +30,7 @@ html, body {
     filter:brightness(1.2);
 }
 
-figure, .blur {
+ .blur, figure, img {
     border-radius:50%;
     width:fit-content;
 }
@@ -40,7 +40,6 @@ figure, .blur {
 }
 
 img {
-    border-radius:50%;
     opacity:0.6;
     width:140px;
 }
@@ -56,6 +55,20 @@ img:hover {
     z-index:1;
 }
 
+.jumpscare {
+    display: none;
+    filter:brightness(50);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform:rotate(20deg);
+    width: 100%;
+    z-index: 100;
+}
+.jumpscare-active-class{
+    display: block !important;
+}
 
 /* Acts on screens smaller than 500px wide */
 @media (max-width: 500px) {
@@ -68,7 +81,6 @@ img:hover {
     img {
         width:120px;
     }
-    
 }
 
 /* Acts on screens smaller than 1000px wide */
@@ -82,17 +94,4 @@ img:hover {
     img {
         width:180px;
     }
-
-}
-.jumpscare1{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    display: none;
-}
-.jumpscare-active-class{
-    display: block !important;
 }
