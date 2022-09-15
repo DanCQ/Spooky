@@ -6,6 +6,13 @@ html, body {
     width:100%;
 }
 
+#blinky {
+    position:absolute;
+    bottom:5%;
+    right:5%;
+    z-index:2;
+}
+
 .blur {
     color:lightcyan;
     filter:blur(80px);
@@ -38,6 +45,10 @@ img {
     width:140px;
 }
 
+img:hover {
+    visibility:hidden;
+}
+
 #inky {
     position:absolute;
     top:5%;
@@ -45,12 +56,6 @@ img {
     z-index:1;
 }
 
-#blinky {
-    position:absolute;
-    bottom:5%;
-    right:5%;
-    z-index:2;
-}
 
 /* Acts on screens smaller than 500px wide */
 @media (max-width: 500px) {
