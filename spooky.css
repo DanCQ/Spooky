@@ -40,7 +40,7 @@ html, body {
     animation-iteration-count:infinite;
     animation-name:boo;
     animation-timing-function:ease-out;
-    transform-origin: 50% 50%;
+    transform-origin: 65% 50%;
 }
 
 .hide {
