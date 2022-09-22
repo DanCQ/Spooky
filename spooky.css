@@ -35,6 +35,14 @@ html, body {
     width:fit-content;
 }
 
+#boo {
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+    animation-name:boo;
+    animation-timing-function:ease-out;
+    transform-origin: 50% 50%;
+}
+
 .hide {
     visibility:hidden;
 }
@@ -68,6 +76,22 @@ img:hover {
 }
 .jumpscare-active-class{
     display: block !important;
+}
+
+/* Animation for Boo! */
+@keyframes boo {
+    0% {
+        transform: rotate(350deg);
+    }
+    25% {
+        transform: rotate(395deg);
+    }
+    75% {
+        transform: rotate(330deg);
+    }
+    100% {
+        transform: rotate(350deg);
+    }
 }
 
 /* Acts on screens smaller than 500px wide */
