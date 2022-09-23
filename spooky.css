@@ -1,4 +1,4 @@
-html, body {
+body {
     background-color: black;
     margin:0;
     height:100%;
@@ -30,7 +30,7 @@ html, body {
     filter:brightness(1.2);
 }
 
- .blur, figure, img {
+.blur, figure, img {
     border-radius:50%;
     width:fit-content;
 }
@@ -41,6 +41,14 @@ html, body {
     animation-name:boo;
     animation-timing-function:ease-out;
     transform-origin: 50% 100%;
+}
+
+.clockwise {
+    animation: wise 2s ease-in-out;
+}
+
+.counter-clockwise {
+    animation: counter 2s ease-in-out;
 }
 
 .hide {
@@ -94,6 +102,29 @@ img:hover {
     }
 }
 
+@keyframes counter {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes wise {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 /* Acts on screens smaller than 500px wide */
 @media (max-width: 500px) {
 
