@@ -16,17 +16,36 @@ boo.addEventListener("click", function () {
     mySound.play();
 });
 
-
-//Disappears selected variable
-function vanish(vanish) {
-
-    if (vanish.className != "hide") {
-        vanish.className = "hide";
-        return vanish;
-    } else {
-        vanish.className = "";
-        return vanish;
+//Adds class triggering css animation to continue
+function clockwise (item) {
+    
+    function end() {
+        item.classList.remove("clockwise");
+        setTimeout(function() { begin() }, 20000); //waits 20 secs to run
     }
+
+    function begin() {
+        item.classList.add("clockwise");
+        setTimeout(function() { end() }, 10000); //waits 10 secs to run
+    }
+    
+    begin();
+}
+
+//Adds class triggering css animation to continue
+function counterClockwise (item) {
+    
+    function end() {
+        item.classList.remove("counter-clockwise");
+        setTimeout(function() { begin() }, 20000 ); //waits 20 secs to run
+    }
+
+    function begin() {
+        item.classList.add("counter-clockwise");
+        setTimeout(function() { end() } , 10000); //waits 10 secs to run
+    }
+
+    begin();
 }
 
 //Animate item left
@@ -44,12 +63,14 @@ function leftAnimate(item) {
             clearInterval(snap);
             item.style.position = "";
             item.style.left = "";
-            setTimeout(function() { leftAnimate(item) }, 25000);
+            item.style.transform = "rotate(0deg)";           
+            setTimeout(function() { leftAnimate(item) }, 20000);
         }    
     }
     function animateBackward() {
         position -= 1;
         item.style.left = position + "%";
+        item.style.transform = "rotate(-10deg)";
 
         if (position < -45) {
             clearInterval(retreat);
@@ -59,6 +80,7 @@ function leftAnimate(item) {
     function animateForward() {
         position += 1;
         item.style.left = position + "%";
+        item.style.transform = "rotate(10deg)";
 
         if (position > 155) {
             clearInterval(advance);
@@ -84,12 +106,14 @@ function rightAnimate(item) {
             clearInterval(snap);
             item.style.position = "";
             item.style.right = "";
-            setTimeout(function() { rightAnimate(item) }, 22000);
+            item.style.transform = "rotate(0deg)";
+            setTimeout(function() { rightAnimate(item) }, 20000);
         }    
     }
     function animateBackward() {
         position -= 1;
         item.style.right = position + "%";
+        item.style.transform = "rotate(10deg)";
 
         if (position < -45) {
             clearInterval(retreat);
@@ -99,6 +123,7 @@ function rightAnimate(item) {
     function animateForward() {
         position += 1;
         item.style.right = position + "%";
+        item.style.transform = "rotate(-10deg)";
 
         if (position > 155) {
             clearInterval(advance);
@@ -109,12 +134,27 @@ function rightAnimate(item) {
     advance = setInterval(animateForward, 20); //begin animation
 }
 
+//hides item by adding class
+function vanish(item) {
+
+    if (item.className != "hide") {
+        item.className = "hide";
+        return item;
+    } else {
+        item.className = "";
+        return item;
+    }
+}
+
 
 //runs function after html document loads
 window.onload = function() {
 
-    leftAnimate(inky);
-    rightAnimate(blinky);
+    setTimeout(function() { clockwise(inky) }, 20000);
+    setTimeout(function() { counterClockwise(blinky) }, 12000 );
+
+    setTimeout(function() { leftAnimate(inky) }, 10000 );
+    setTimeout(function() { rightAnimate(blinky) }, 12000 );
     
     setInterval(function(){ vanish(inky) }, 5500); //runs every 5.5 seconds
     setInterval(function(){ vanish(blinky) }, 8500); //runs every 8.5 seconds
