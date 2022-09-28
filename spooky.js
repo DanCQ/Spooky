@@ -57,6 +57,7 @@ function flash() {
     var colorArray = ["black","white"];
     var index = 0;
     var lighting;
+    var thunder; 
 
     function reset () {
         if (index >= colorArray.length) {
@@ -71,9 +72,10 @@ function flash() {
     }
 
     lighting = setInterval( function() { color() }, 100);
+    thunder = new Audio('assets/lightning.mp3');
+    thunder.play();
 
     setTimeout(function() { 
-
         clearInterval(lighting);
         body.style.backgroundColor = colorArray[0];
     }, 1500 );
