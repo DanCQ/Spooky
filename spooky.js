@@ -1,7 +1,9 @@
 const blinky = document.getElementById("blinky");
+const body = document.querySelector(".body");
 const boo = document.getElementById("boo");
 const inky = document.getElementById("inky");
 const jumpscare = document.querySelector(".jumpscare");
+
 
 // jumpscare when user clicks on boo word
 boo.addEventListener("click", function () {
@@ -15,6 +17,7 @@ boo.addEventListener("click", function () {
     let mySound = new Audio('assets/jumpscareaudio.mp3');
     mySound.play();
 });
+
 
 //Adds class triggering css animation to continue
 function clockwise (item) {
@@ -47,6 +50,35 @@ function counterClockwise (item) {
 
     begin();
 }
+
+
+//cycle background color
+function flash() {
+    var colorArray = ["black","white"];
+    var index = 0;
+    var lighting;
+
+    function reset () {
+        if (index >= colorArray.length) {
+            index = 0;
+        }
+    }
+
+    function color () {
+        body.style.backgroundColor = colorArray[index];
+        index++;
+        reset();
+    }
+
+    lighting = setInterval( function() { color() }, 100);
+
+    setTimeout(function() { 
+
+        clearInterval(lighting);
+        body.style.backgroundColor = colorArray[0];
+    }, 1500 );
+}
+
 
 //Animate item left
 function leftAnimate(item) {
@@ -150,6 +182,8 @@ function vanish(item) {
 //runs function after html document loads
 window.onload = function() {
 
+    body.addEventListener("click", function() { flash(); } );
+
     setTimeout(function() { clockwise(inky) }, 20000);
     setTimeout(function() { counterClockwise(blinky) }, 12000 );
 
@@ -159,4 +193,3 @@ window.onload = function() {
     setInterval(function(){ vanish(inky) }, 5500); //runs every 5.5 seconds
     setInterval(function(){ vanish(blinky) }, 8500); //runs every 8.5 seconds
 };
-
