@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    cursor:pointer;
     margin:0;
     height:100%;
     overflow:hidden;
@@ -15,7 +16,6 @@ body {
 
 .blur {
     color:lightcyan;
-    cursor: pointer;
     filter:blur(80px);
     font-family: "party let", "brush script mt", "snell roundhand", "luminari";
     font-size: 11em;
