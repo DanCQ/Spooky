@@ -188,10 +188,10 @@ function ooo() {
 //runs function after html document loads
 window.onload = function() {
     
-    setTimeout(function() { flash() }, 3000 );
+    setTimeout(function() { flash() }, 3000 ); //---INITIAL SOUND NOT PLAYING Due to Browser blocking sounds
 
     setTimeout(function() { 
-        ooo();  //---INITIAL SOUND NOT PLAYING- NOT SURE WHY??
+        ooo();  //---INITIAL SOUND NOT PLAYING Due to Browser blocking sounds
         setInterval(function() { ooo() }, 1000 * 60); //runs every minute
     }, 5250); //runs after 5.25 seconds
     
