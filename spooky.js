@@ -188,8 +188,8 @@ function ooo() {
 window.onload = function() {
 
     setTimeout(function() { 
-        ooo(); //runs once without delay
-        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
+        ooo() //runs once without delay
+        setInterval(function() { ooo() }, 1000 * 60) //runs every minute
     }, 5250); //runs after 5.25 seconds
 
     body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
