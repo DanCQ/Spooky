@@ -187,8 +187,7 @@ function ooo() {
 //runs function after html document loads
 window.onload = function() {
     
-    ooo();
-    setInterval(function() { ooo() }, 1000 * 60); //runs every minute
+    setInterval(function() { ooo() }, 1000 * 45); //runs every 45 seconds
 
     body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
 
