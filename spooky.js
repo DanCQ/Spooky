@@ -188,9 +188,9 @@ function ooo() {
 //runs function after html document loads
 window.onload = function() {
     
-    setTimeout(function() { //-----FIX THIS
-        ooo() //---INITIAL SOUND NOT PLAYING- NOT SURE WHY??
-        setInterval(function() { ooo() }, 1000 * 60) //runs every minute
+    setTimeout(function() { 
+        ooo();  //---INITIAL SOUND NOT PLAYING- NOT SURE WHY??
+        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
     }, 5250); //runs after 5.25 seconds
     
     body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
