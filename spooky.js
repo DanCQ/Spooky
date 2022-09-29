@@ -187,11 +187,8 @@ function ooo() {
 //runs function after html document loads
 window.onload = function() {
     
-    setTimeout(function() { 
-        ooo(); 
-        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
-        
-    }, 10000); //runs after 10 seconds
+    ooo();
+    setInterval(function() { ooo() }, 1000 * 60); //runs every minute
 
     body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
 
