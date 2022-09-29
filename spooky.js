@@ -188,7 +188,7 @@ function ooo() {
 window.onload = function() {
     
     setTimeout(function() { 
-        ooo(); ooo();
+        ooo(); //---THIS SOUND WILL NOT PLAY THE FIRST TIME (in browser only)--CAN'T FIGURE OUT WHY ???---
         setInterval(function() { ooo() }, 1000 * 60); //runs every minute
     }, 5250); //runs after 5.25 seconds
 
