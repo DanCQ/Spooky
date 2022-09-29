@@ -183,14 +183,12 @@ function ooo() {
     let oooh = new Audio('assets/ooo.mp3');
     oooh.play();
 }
+setTimeout(function() { ooo() }, 5250); //runs after 5.25 seconds
 
 //runs function after html document loads
 window.onload = function() {
     
-    setTimeout(function() { 
-        ooo(); //---THIS SOUND WILL NOT PLAY THE FIRST TIME (in browser only)--CAN'T FIGURE OUT WHY ???---
-        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
-    }, 5250); //runs after 5.25 seconds
+    setInterval(function() { ooo() }, 1000 * 60); //runs every minute
 
     body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
 
