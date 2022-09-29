@@ -51,8 +51,7 @@ function counterClockwise (item) {
     begin();
 }
 
-
-//cycle background color
+//cycle background color to simulate thunder
 function flash() {
     var colorArray = ["black","white"];
     var index = 0;
@@ -71,16 +70,15 @@ function flash() {
         reset();
     }
 
-    lighting = setInterval( function() { color() }, 100);
+    lighting = setInterval( function() { color() }, 75); //flashes screen at 0.075 seconds
     thunder = new Audio('assets/lightning.mp3');
     thunder.play();
 
     setTimeout(function() { 
         clearInterval(lighting);
-        body.style.backgroundColor = colorArray[0];
-    }, 1500 );
+        body.style.backgroundColor = colorArray[0]; //guarantees background color stays black
+    }, 1500 ); //stops flashing effect after 1.5 seconds
 }
-
 
 //Animate item left
 function leftAnimate(item) {
@@ -108,7 +106,7 @@ function leftAnimate(item) {
 
         if (position < -45) {
             clearInterval(retreat);
-            snap = setInterval(snapBack, 1);
+            snap = setInterval(snapBack, 10);
         }
     }
     function animateForward() {
@@ -180,11 +178,21 @@ function vanish(item) {
     }
 }
 
+//spooky ghost sounds
+function ooo() {
+    let oooh = new Audio('assets/ooo.mp3');
+    oooh.play();
+}
 
 //runs function after html document loads
 window.onload = function() {
 
-    body.addEventListener("click", function() { flash(); } );
+    setTimeout(function() { 
+        ooo(); //runs once without delay
+        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
+    }, 5250); //runs after 5.25 seconds
+
+    body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
 
     setTimeout(function() { clockwise(inky) }, 20000);
     setTimeout(function() { counterClockwise(blinky) }, 12000 );
@@ -192,6 +200,6 @@ window.onload = function() {
     setTimeout(function() { leftAnimate(inky) }, 10000 );
     setTimeout(function() { rightAnimate(blinky) }, 12000 );
     
-    setInterval(function(){ vanish(inky) }, 5500); //runs every 5.5 seconds
-    setInterval(function(){ vanish(blinky) }, 8500); //runs every 8.5 seconds
+    setInterval(function() { vanish(inky) }, 5500); //runs every 5.5 seconds
+    setInterval(function() { vanish(blinky) }, 8500); //runs every 8.5 seconds
 };
