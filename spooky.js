@@ -2,16 +2,17 @@ const blinky = document.getElementById("blinky");
 const body = document.querySelector(".body");
 const boo = document.getElementById("boo");
 const inky = document.getElementById("inky");
-const jumpscare = document.querySelector(".jumpscare");
 
 
-// jumpscare when user clicks on boo word
+// jumpscare when user clicks on Boo!
 boo.addEventListener("click", function () {
+    
+    const jumpscare = document.querySelector(".jumpscare");
 
-    jumpscare.classList.add("jumpscare-active-class");
+    jumpscare.classList.add("jumpscare-visible"); //makes face visible
     
     setTimeout(function () {
-        jumpscare.classList.remove("jumpscare-active-class");
+        jumpscare.classList.remove("jumpscare-visible");
     }, 2000);
     
     let mySound = new Audio('assets/jumpscareaudio.mp3');
@@ -19,39 +20,27 @@ boo.addEventListener("click", function () {
 });
 
 
-//Adds class triggering css animation to continue
-function clockwise (item) {
-    
-    function end() {
-        item.classList.remove("clockwise");
-        setTimeout(function() { begin() }, 20000); //waits 20 secs to run
-    }
+//contains vanish intervals for ghosts
+function disappear() {
 
-    function begin() {
-        item.classList.add("clockwise");
-        setTimeout(function() { end() }, 10000); //waits 10 secs to run
+    setInterval(function() { vanish(inky) }, 5500); //runs every 5.5 seconds
+    setInterval(function() { vanish(blinky) }, 8500); //runs every 8.5 seconds
+
+    //hides item by adding class
+    function vanish(item) {
+
+        if (item.className != "hide") {
+            item.className = "hide";
+            return item;
+        } else {
+            item.className = "";
+            return item;
+        }
     }
-    
-    begin();
 }
+     
 
-//Adds class triggering css animation to continue
-function counterClockwise (item) {
-    
-    function end() {
-        item.classList.remove("counter-clockwise");
-        setTimeout(function() { begin() }, 20000 ); //waits 20 secs to run
-    }
-
-    function begin() {
-        item.classList.add("counter-clockwise");
-        setTimeout(function() { end() } , 10000); //waits 10 secs to run
-    }
-
-    begin();
-}
-
-//cycle background color to simulate thunder
+//flash background to simulate thunder w/ sound
 function flash() {
     var colorArray = ["black","white"];
     var index = 0;
@@ -76,133 +65,176 @@ function flash() {
 
     setTimeout(function() { 
         clearInterval(lighting);
-        body.style.backgroundColor = colorArray[0]; //guarantees background color stays black
+        body.style.backgroundColor = colorArray[0]; //background color stays black
     }, 1500 ); //stops flashing effect after 1.5 seconds
+
+    body.addEventListener("click", function() { flash() }); //on click triggers thunder and flashing
 }
 
-//Animate item left
-function leftAnimate(item) {
-    var advance;
-    var position = 0;
-    var retreat;
-    var snap;
 
-    function snapBack() {
-        position += 2;
-        item.style.left = position + "%";
+//contains left and right animations
+function leftRightAnimation() {
 
-        if (position >= 0) {
-            clearInterval(snap);
-            item.style.position = "";
-            item.style.left = "";
-            item.style.transform = "rotate(0deg)";           
-            setTimeout(function() { leftAnimate(item) }, 20000);
-        }    
-    }
-    function animateBackward() {
-        position -= 1;
-        item.style.left = position + "%";
-        item.style.transform = "rotate(-10deg)";
+    setTimeout(function() { leftAnimate(inky) }, 10000 ); //at 10 seconds
+    setTimeout(function() { rightAnimate(blinky) }, 12000 ); //at 12 seconds
+    
+    //Animate item left
+    function leftAnimate(item) {
+        var advance;
+        var position = 0;
+        var retreat;
+        var snap;
 
-        if (position < -45) {
-            clearInterval(retreat);
-            snap = setInterval(snapBack, 10);
+        function snapBack() {
+            position += 2;
+            item.style.left = position + "%";
+
+            if (position >= 0) {
+                clearInterval(snap);
+                item.style.position = "";
+                item.style.left = "";
+                item.style.transform = "rotate(0deg)";           
+                setTimeout(function() { leftAnimate(item) }, 20000);
+            }    
         }
-    }
-    function animateForward() {
-        position += 1;
-        item.style.left = position + "%";
-        item.style.transform = "rotate(10deg)";
+        function animateBackward() {
+            position -= 1;
+            item.style.left = position + "%";
+            item.style.transform = "rotate(-10deg)";
 
-        if (position > 155) {
-            clearInterval(advance);
-            retreat = setInterval(animateBackward, 15);
+            if (position < -45) {
+                clearInterval(retreat);
+                snap = setInterval(snapBack, 10);
+            }
         }
+        function animateForward() {
+            position += 1;
+            item.style.left = position + "%";
+            item.style.transform = "rotate(10deg)";
+
+            if (position > 155) {
+                clearInterval(advance);
+                retreat = setInterval(animateBackward, 15);
+            }
+        }
+        item.style.position = "absolute";
+        advance = setInterval(animateForward, 20); //begin animation
     }
-    item.style.position = "absolute";
-    advance = setInterval(animateForward, 20); //begin animation
+
+    //Animate item right
+    function rightAnimate(item) {
+        var advance;
+        var position = 0;
+        var retreat;
+        var snap;
+
+        function snapBack() {
+            position += 2;
+            item.style.right = position + "%";
+
+            if (position >= 0) {
+                clearInterval(snap);
+                item.style.position = "";
+                item.style.right = "";
+                item.style.transform = "rotate(0deg)";
+                setTimeout(function() { rightAnimate(item) }, 20000);
+            }    
+        }
+        function animateBackward() {
+            position -= 1;
+            item.style.right = position + "%";
+            item.style.transform = "rotate(10deg)";
+
+            if (position < -45) {
+                clearInterval(retreat);
+                snap = setInterval(snapBack, 1);
+            }
+        }
+        function animateForward() {
+            position += 1;
+            item.style.right = position + "%";
+            item.style.transform = "rotate(-10deg)";
+
+            if (position > 155) {
+                clearInterval(advance);
+                retreat = setInterval(animateBackward, 15);
+            }
+        }
+        item.style.position = "absolute";
+        advance = setInterval(animateForward, 20); //begin animation
+    }
 }
 
-//Animate item right
-function rightAnimate(item) {
-    var advance;
-    var position = 0;
-    var retreat;
-    var snap;
 
-    function snapBack() {
-        position += 2;
-        item.style.right = position + "%";
+//contains spin animations for ghosts
+function spinAnimation() {
 
-        if (position >= 0) {
-            clearInterval(snap);
-            item.style.position = "";
-            item.style.right = "";
-            item.style.transform = "rotate(0deg)";
-            setTimeout(function() { rightAnimate(item) }, 20000);
-        }    
-    }
-    function animateBackward() {
-        position -= 1;
-        item.style.right = position + "%";
-        item.style.transform = "rotate(10deg)";
+    setTimeout(function() { clockwise(inky) }, 20000); // at 20 secs
+    setTimeout(function() { counterClockwise(blinky) }, 12000 ); //at 12 secs
 
-        if (position < -45) {
-            clearInterval(retreat);
-            snap = setInterval(snapBack, 1);
+    //Adds class triggering css animation to continue
+    function clockwise (item) {
+    
+        function end() {
+            item.classList.remove("clockwise");
+            setTimeout(function() { begin() }, 20000); //waits 20 secs to run
         }
-    }
-    function animateForward() {
-        position += 1;
-        item.style.right = position + "%";
-        item.style.transform = "rotate(-10deg)";
 
-        if (position > 155) {
-            clearInterval(advance);
-            retreat = setInterval(animateBackward, 15);
+        function begin() {
+            item.classList.add("clockwise");
+            setTimeout(function() { end() }, 10000); //waits 10 secs to run
         }
+
+        begin();
     }
-    item.style.position = "absolute";
-    advance = setInterval(animateForward, 20); //begin animation
+
+    //Adds class triggering css animation to continue
+    function counterClockwise (item) {
+    
+        function end() {
+            item.classList.remove("counter-clockwise");
+            setTimeout(function() { begin() }, 20000 ); //waits 20 secs to run
+        }
+
+        function begin() {
+            item.classList.add("counter-clockwise");
+            setTimeout(function() { end() } , 10000); //waits 10 secs to run
+        }
+
+        begin();
+    }
 }
 
-//hides item by adding class
-function vanish(item) {
-
-    if (item.className != "hide") {
-        item.className = "hide";
-        return item;
-    } else {
-        item.className = "";
-        return item;
-    }
-}
 
 //spooky ghost sounds
-function ooo() {
-    let oooh = new Audio('assets/ooo.mp3');
-    oooh.play();
-}
+function spooky() {
 
+    function ooo() {
+        let oooh = new Audio('assets/ooo.mp3');
+        oooh.play();
+    }
+
+    setTimeout(function() { 
+        
+        ooo();  //browser may block this sound
+        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
+
+    }, 5250); //runs after 5.25 seconds
+}
 
 //runs function after html document loads
 window.onload = function() {
-    
-    setTimeout(function() { flash() }, 3000 ); //---INITIAL SOUND NOT PLAYING Due to Browser blocking sounds
 
-    setTimeout(function() { 
-        ooo();  //---INITIAL SOUND NOT PLAYING Due to Browser blocking sounds
-        setInterval(function() { ooo() }, 1000 * 60); //runs every minute
-    }, 5250); //runs after 5.25 seconds
-    
-    body.addEventListener("click", function() { flash(); } ); //on click triggers thunder
+    body.addEventListener("click", function() { flash() }); //click triggers thunder and flash
 
-    setTimeout(function() { clockwise(inky) }, 20000);
-    setTimeout(function() { counterClockwise(blinky) }, 12000 );
+    disappear(); //vanishes ghosts on set intervals
 
-    setTimeout(function() { leftAnimate(inky) }, 10000 );
-    setTimeout(function() { rightAnimate(blinky) }, 12000 );
+    leftRightAnimation(); //moves ghosts on set interval
     
-    setInterval(function() { vanish(inky) }, 5500); //runs every 5.5 seconds
-    setInterval(function() { vanish(blinky) }, 8500); //runs every 8.5 seconds
+    setTimeout(function() { flash() }, 3000 ); //browser may block the sound
+    
+    spinAnimation(); //spins ghosts on set intervals
+
+    spooky(); //sets ghost sounds on intervals  
+    
 };
