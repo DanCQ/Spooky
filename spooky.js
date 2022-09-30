@@ -83,6 +83,29 @@ function leftRightAnimation() {
         var retreat;
         var snap;
 
+        item.style.position = "absolute";
+        advance = setInterval(animateForward, 20); //begin animation
+        
+        function animateForward() {
+            position += 1;
+            item.style.left = position + "%";
+            item.style.transform = "rotate(10deg)";
+
+            if (position > 155) {
+                clearInterval(advance);
+                retreat = setInterval(animateBackward, 15);
+            }
+        }
+        function animateBackward() {
+            position -= 1;
+            item.style.left = position + "%";
+            item.style.transform = "rotate(-10deg)";
+
+            if (position < -45) {
+                clearInterval(retreat);
+                snap = setInterval(snapBack, 10);
+            }
+        }
         function snapBack() {
             position += 2;
             item.style.left = position + "%";
@@ -95,28 +118,6 @@ function leftRightAnimation() {
                 setTimeout(function() { leftAnimate(item) }, 20000);
             }    
         }
-        function animateBackward() {
-            position -= 1;
-            item.style.left = position + "%";
-            item.style.transform = "rotate(-10deg)";
-
-            if (position < -45) {
-                clearInterval(retreat);
-                snap = setInterval(snapBack, 10);
-            }
-        }
-        function animateForward() {
-            position += 1;
-            item.style.left = position + "%";
-            item.style.transform = "rotate(10deg)";
-
-            if (position > 155) {
-                clearInterval(advance);
-                retreat = setInterval(animateBackward, 15);
-            }
-        }
-        item.style.position = "absolute";
-        advance = setInterval(animateForward, 20); //begin animation
     }
 
     //Animate item right
@@ -126,6 +127,29 @@ function leftRightAnimation() {
         var retreat;
         var snap;
 
+        item.style.position = "absolute";
+        advance = setInterval(animateForward, 20); //begin animation
+        
+        function animateForward() {
+            position += 1;
+            item.style.right = position + "%";
+            item.style.transform = "rotate(-10deg)";
+
+            if (position > 155) {
+                clearInterval(advance);
+                retreat = setInterval(animateBackward, 15);
+            }
+        }
+        function animateBackward() {
+            position -= 1;
+            item.style.right = position + "%";
+            item.style.transform = "rotate(10deg)";
+
+            if (position < -45) {
+                clearInterval(retreat);
+                snap = setInterval(snapBack, 1);
+            }
+        }
         function snapBack() {
             position += 2;
             item.style.right = position + "%";
@@ -138,28 +162,6 @@ function leftRightAnimation() {
                 setTimeout(function() { rightAnimate(item) }, 20000);
             }    
         }
-        function animateBackward() {
-            position -= 1;
-            item.style.right = position + "%";
-            item.style.transform = "rotate(10deg)";
-
-            if (position < -45) {
-                clearInterval(retreat);
-                snap = setInterval(snapBack, 1);
-            }
-        }
-        function animateForward() {
-            position += 1;
-            item.style.right = position + "%";
-            item.style.transform = "rotate(-10deg)";
-
-            if (position > 155) {
-                clearInterval(advance);
-                retreat = setInterval(animateBackward, 15);
-            }
-        }
-        item.style.position = "absolute";
-        advance = setInterval(animateForward, 20); //begin animation
     }
 }
 
