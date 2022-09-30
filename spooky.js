@@ -67,8 +67,6 @@ function flash() {
         clearInterval(lighting);
         body.style.backgroundColor = colorArray[0]; //background color stays black
     }, 1500 ); //stops flashing effect after 1.5 seconds
-
-    body.addEventListener("click", function() { flash() }); //on click triggers thunder and flashing
 }
 
 
@@ -221,6 +219,7 @@ function spooky() {
 
     }, 5250); //runs after 5.25 seconds
 }
+
 
 //runs function after html document loads
 window.onload = function() {
