@@ -87,7 +87,7 @@ img:hover {
     z-index: 100;
 }
 
-.jumpscare-active-class {
+.jumpscare-visible {
     display: block !important;
 }
 
@@ -106,7 +106,7 @@ img:hover {
         transform: rotate(350deg);
     }
 }
-
+/* animation for ghost */
 @keyframes counter {
     0% {
         transform: rotate(0deg);
@@ -119,6 +119,7 @@ img:hover {
     }
 }
 
+/* animation for ghost */
 @keyframes wise {
     0% {
         transform: rotate(0deg);
@@ -130,7 +131,7 @@ img:hover {
         transform: rotate(360deg);
     }
 }
-/* Acts on screens smaller than 500px wide */
+/* Acts on screens smaller than 400px wide */
 @media (max-width: 400px) {
 
     .blur {
