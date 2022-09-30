@@ -213,7 +213,6 @@ function spooky() {
     }
 
     setTimeout(function() { 
-        
         ooo();  //browser may block this sound
         setInterval(function() { ooo() }, 1000 * 60); //runs every minute
 
@@ -235,5 +234,5 @@ window.onload = function() {
     spinAnimation(); //spins ghosts on set intervals
 
     spooky(); //sets ghost sounds on intervals  
-    
+
 };
