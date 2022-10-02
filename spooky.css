@@ -3,7 +3,7 @@ body {
     background-color: black;
     cursor:pointer;
     margin:0;
-    height:100vh;
+    min-height:100vh;
     overflow:hidden;
     display:flex;
     justify-content: center;
@@ -132,7 +132,7 @@ img:hover {
     }
 }
 /* Acts on screens smaller than 400px wide */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 
     .blur {
         font-size:9em;
