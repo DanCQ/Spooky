@@ -216,9 +216,10 @@ function spooky() {
 
     setTimeout(function() { 
         ooo();  //browser may block this sound
-        setInterval(function() { ooo() }, 1000 * 45); //runs every minute
-
+        
     }, 5250); //runs after 5.25 seconds
+    
+    setInterval(function() { ooo() }, 1000 * 45); //runs every minute
 }
 
 
