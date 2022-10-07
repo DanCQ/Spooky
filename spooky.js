@@ -213,13 +213,9 @@ function spooky() {
         let oooh = new Audio('assets/ooo.mp3');
         oooh.play();
     }
-
-    setTimeout(function() { 
-        ooo();  //browser may block this sound
-        
-    }, 5250); //runs after 5.25 seconds
+    ooo();
     
-    setInterval(function() { ooo() }, 1000 * 45); //runs every minute
+    setInterval(function() { ooo() }, 1000 * 40); //runs 40 seconds
 }
 
 
@@ -232,10 +228,8 @@ window.onload = function() {
 
     leftRightAnimation(); //moves ghosts on set interval
     
-    setTimeout(function() { flash() }, 3000 ); //browser may block the sound
-    
     spinAnimation(); //spins ghosts on set intervals
 
-    spooky(); //sets ghost sounds on intervals  
-
+    spooky(); //plays ghost sounds on set intervals 
+       
 };
