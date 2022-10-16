@@ -15,7 +15,7 @@ boo.addEventListener("click", function () {
         jumpscare.classList.remove("jumpscare-visible");
     }, 2000);
     
-    let mySound = new Audio('assets/jumpscareaudio.mp3');
+    let mySound = new Audio('assets/scream.mp3');
     mySound.play();
 });
 
