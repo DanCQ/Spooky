@@ -89,14 +89,10 @@ img:hover {
 
 .jumpscare {
     display: none;
-    filter:brightness(50);
-    height: 100%;
-    left: 0;
+    filter:brightness(3);
     position: absolute;
-    top: 0;
-    transform:rotate(20deg);
-    width: 100%;
-    z-index: 100;
+    width:50%;
+    z-index:10;
 }
 
 .jumpscare-visible {
