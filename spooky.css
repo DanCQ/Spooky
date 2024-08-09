@@ -4,15 +4,15 @@ a {
 }
 
 body {
-    align-items: center;
     background-color: black;
     cursor:pointer;
+    display:flex;
+        align-items: center;
+        justify-content: center;
     margin:0;
     min-height:100vh;
     min-width:100vw;
     overflow:hidden;
-    display:flex;
-    justify-content: center;
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout:none;
@@ -21,8 +21,8 @@ body {
 
 #blinky {
     position:absolute;
-    bottom:5%;
-    right:5%;
+        bottom:5%;
+        right:5%;
     z-index:3;
 }
 
@@ -31,11 +31,11 @@ body {
     filter:blur(80px);
     font-family: "party let", "brush script mt", "snell roundhand", "luminari";
     font-size: 14em;
+    position:absolute;
     text-align:center;
     text-shadow: 0 0 20px cyan;
     transform:rotate(350deg);
     z-index:4;
-    position:absolute;
 }
 
 .blur:hover {
@@ -67,7 +67,7 @@ body {
 footer {
     font-family: "luminari", "Academy Engraved Let", "zapfino";
     position:absolute;
-    bottom:15px;
+        bottom:15px;
 }
 
 .hide {
@@ -85,8 +85,8 @@ img:hover {
 
 #inky {
     position:absolute;
-    top:5%;
-    left:5%;
+        left:5%;
+        top:5%;
     z-index:2;
 }
 
@@ -94,8 +94,7 @@ img:hover {
     display: none;
     filter:brightness(3);
     position: absolute;
-    min-height:100vh;
-    min-width:100vw;
+    height:100vh;
     width:100%;
 }
 
